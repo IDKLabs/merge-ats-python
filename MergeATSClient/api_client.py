@@ -93,6 +93,9 @@ class ApiClient(object):
             if hasattr(atexit, 'unregister'):
                 atexit.unregister(self.close)
 
+        if self.rest_client:
+            self.rest_client.pool_manager.close()
+
     @property
     def pool(self):
         """Create thread pool on first request
