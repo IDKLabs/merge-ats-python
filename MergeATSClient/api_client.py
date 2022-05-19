@@ -94,7 +94,7 @@ class ApiClient(object):
                 atexit.unregister(self.close)
 
         if self.rest_client:
-            self.rest_client.pool_manager.close()
+            self.rest_client.pool_manager.clear()
 
     @property
     def pool(self):
